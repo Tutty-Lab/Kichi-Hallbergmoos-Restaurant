@@ -1,5 +1,5 @@
 import { expect, it } from "vitest";
-import { STORES } from "../stores";
+import { STORES } from "./baoStoreFixture";
 import { workloadAt } from "../staffing";
 it("uses equal demand every day and minute, including holidays", () => {
  const c=STORES[0];

@@ -34,7 +34,7 @@ export type Rule = { id: RuleId; kind: RuleKind; title: string; detail: string }
 
 export const RULES: readonly Rule[] = [
   { id: "open-hours", kind: "hard", title: "Chỉ trong giờ mở cửa", detail: "Ngày quán đóng cửa và giờ nghỉ trưa không xếp ca." },
-  { id: "closing", kind: "hard", title: "Luôn có người tới 15:00 và 22:00", detail: "Suốt giờ mở luôn có ít nhất 1 người; chốt ca trưa và đóng cửa không bao giờ trống." },
+  { id: "closing", kind: "hard", title: "Định biên theo cấu hình cửa hàng", detail: "Kichi chưa cung cấp số người tối thiểu; kiểm tra độ phủ trước khi sử dụng lịch." },
   { id: "shift-length", kind: "hard", title: "Ca 3–8 giờ, nghỉ đúng luật", detail: "Mỗi ca ít nhất 3 giờ, tối đa 8 giờ công một ngày; giờ nghỉ theo luật lao động." },
   { id: "max-days", kind: "hard", title: "Tối đa 6 ngày liên tiếp", detail: "Không vượt 6 ngày liên tiếp và không vượt „Số ngày làm / tuần\" đã đặt." },
   { id: "days-off", kind: "hard", title: "Ngày nghỉ cố định", detail: "Không xếp ca vào ngày nghỉ cố định của người đó." },
@@ -44,8 +44,8 @@ export const RULES: readonly Rule[] = [
   { id: "fixed-shift", kind: "hard", title: "Ca cố định", detail: "Người có ca cố định chỉ làm đúng khung giờ đó." },
   { id: "holiday-duty", kind: "hard", title: "Trực ngày lễ", detail: "Ngày lễ quán mở thì người trực ngày lễ phải có ca." },
   { id: "contract-hours", kind: "soft", title: "Đủ giờ định mức", detail: "Xếp đủ giờ hợp đồng; tháng không đủ ngày (nghỉ, giới hạn ngày, làm quán khác) thì báo thiếu." },
-  { id: "peak-staff", kind: "soft", title: "Số người giờ cao điểm", detail: "Trưa 12–14h và tối 18–21h đủ người (đông hơn thì không sao)." },
-  { id: "day-weights", kind: "soft", title: "Ngày đông nhiều giờ hơn", detail: "Ngày đông (hệ số 1,5) và ngày lễ nhận nhiều giờ hơn ngày thường." },
+  { id: "peak-staff", kind: "soft", title: "Số người giờ cao điểm", detail: "Cao điểm 11:30–13:00 và 17:00–19:30; chưa có số người tối thiểu." },
+  { id: "day-weights", kind: "soft", title: "Ngày đông nhiều giờ hơn", detail: "Kichi tạm dùng trọng số bằng nhau cho các ngày mở cửa." },
   { id: "own-shift-length", kind: "soft", title: "Độ dài ca riêng", detail: "Mỗi ngày làm nằm trong khoảng giờ đã đặt cho người đó." },
   { id: "spread-evenly", kind: "soft", title: "Rải đều trong tháng", detail: "Giờ chia đều theo tuần; có Độ dài ca thì nhiều ca ngắn hơn." },
   { id: "preferred-windows", kind: "soft", title: "Khung giờ ưu tiên", detail: "Xếp vào ngày và giờ người đó muốn, nếu số người và giờ định mức cho phép." },

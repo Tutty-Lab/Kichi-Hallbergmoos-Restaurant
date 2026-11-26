@@ -890,7 +890,7 @@ export function generateWeeklySchedule(input: WeeklyInput, existing: Shift[] = [
   const legacyRank = (e: Employee) => e.employmentType === "VOLLZEIT" ? 0 : e.employmentType === "TEILZEIT" ? 1 : 2;
   const employees = [...input.employees].sort((a, b) =>
     Number(Boolean(b.fixedShift)) - Number(Boolean(a.fixedShift)) ||
-    (input.storeTag === "bao" ? eligibleCounts.get(a.id)! - eligibleCounts.get(b.id)! : legacyRank(a) - legacyRank(b)) || a.id.localeCompare(b.id),
+    (["bao", "kichi-hallbergmoos"].includes(input.storeTag ?? "") ? eligibleCounts.get(a.id)! - eligibleCounts.get(b.id)! : legacyRank(a) - legacyRank(b)) || a.id.localeCompare(b.id),
   );
   let result = [...existing];
   const monthDates = [...days.keys()];
@@ -1016,7 +1016,7 @@ export function generateWeeklySchedule(input: WeeklyInput, existing: Shift[] = [
   // Wochenverträge bleiben an ihrer Woche – nur Monatsverträge dürfen den Tag tauschen.
   result = fillGroupGaps(result, employees.filter((employee) => employee.weeklyHours == null), days, holidays, dailyTargets, ctx);
   // Bao: changed opening hours are hard bounds; never invent preparation time.
-  if (input.storeTag !== "bao") result = earlyStartTopUp(result, employees, days, holidays, dailyTargets, monthlyTargets, ctx);
+  if (!["bao", "kichi-hallbergmoos"].includes(input.storeTag ?? "")) result = earlyStartTopUp(result, employees, days, holidays, dailyTargets, monthlyTargets, ctx);
   result = extendLongDays(result, employees, days, holidays, dailyTargets, monthlyTargets, ctx);
 
   return improveCoverage(result, employees, days, holidays, dailyTargets, ctx)

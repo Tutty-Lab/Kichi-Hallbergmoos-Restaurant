@@ -25,7 +25,7 @@ export const DEFAULT_PASSWORD = "1991";
 /** Kürzestes zulässiges Passwort. */
 export const MIN_PASSWORD_LENGTH = 4;
 
-const AUTH_KEY = "bao-app:auth";
+const AUTH_KEY = "kichi-hallbergmoos-app:auth";
 
 /** SHA-256 als Hex-String. */
 export async function hashPassword(text: string): Promise<string> {

@@ -1,5 +1,5 @@
 {
-  "name": "bao-restaurant",
+  "name": "kichi-hallbergmoos-restaurant",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -34,4 +34,3 @@
     "vitest": "^2.1.8"
   }
 }
-

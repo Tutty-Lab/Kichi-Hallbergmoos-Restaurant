@@ -14,7 +14,7 @@ import { STORES } from "./lib/stores";
 import type { EmployeeChange } from "./lib/suggestions";
 
 /** Zuletzt angezeigter Laden (nur Ansicht, je Gerät). */
-const VIEW_KEY = "bao-app:view-store";
+const VIEW_KEY = "kichi-hallbergmoos-app:view-store";
 
 type TabId = "einstellungen" | "mitarbeiter" | "dienstplan" | "lich";
 

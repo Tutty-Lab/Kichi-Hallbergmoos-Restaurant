@@ -21,8 +21,8 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["icon.svg"],
       manifest: {
-        name: "Lịch làm việc & Bảng chấm công",
-        short_name: "Lịch làm việc",
+        name: "Kichi Hallbergmoos · Lịch làm việc",
+        short_name: "Kichi",
         description:
           "Tạo lịch làm việc hàng tháng và in bảng chấm công (Stundenzettel) cho cửa hàng ở Đức.",
         lang: "vi",

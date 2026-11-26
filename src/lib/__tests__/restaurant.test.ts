@@ -1,6 +1,6 @@
 import { applyMigrations } from "../migrations";
 import { describe, expect, it } from "vitest";
-import { STORES, initialScheduleFor } from "../stores";
+import { STORES, initialScheduleFor } from "./baoStoreFixture";
 import { mayWorkOn } from "../availability";
 import { resolveDay } from "../workHours";
 import { publicHolidays } from "../holidays";

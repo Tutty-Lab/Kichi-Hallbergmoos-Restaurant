@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { Employee } from "../../types";
 import { generateSchedule } from "../scheduler";
-import { STORES, initialScheduleFor } from "../stores";
+import { STORES, initialScheduleFor } from "./baoStoreFixture";
 import { makeEmployee } from "../sampleData";
 import { datesOfMonth } from "../demand";
 import { publicHolidays } from "../holidays";

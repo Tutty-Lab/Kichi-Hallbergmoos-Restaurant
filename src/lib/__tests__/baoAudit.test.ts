@@ -1,5 +1,5 @@
 import { expect, it } from "vitest";
-import { STORES, initialScheduleFor } from "../stores";
+import { STORES, initialScheduleFor } from "./baoStoreFixture";
 import { generateSchedule } from "../scheduler";
 import { monthlyTargetMinutesFor } from "../contract";
 import { datesOfMonth } from "../demand";

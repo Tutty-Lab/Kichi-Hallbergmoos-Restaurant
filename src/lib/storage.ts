@@ -7,7 +7,7 @@ import type { Schedule, Shift } from "../types";
 
 // Je Filiale ein eigener Schlüssel – sonst würde das Umschalten die Daten
 // der anderen Filiale überschreiben.
-const keyFor = (storeId: string) => `bao-app:v1:${storeId}`;
+const keyFor = (storeId: string) => `kichi-hallbergmoos-app:v1:${storeId}`;
 
 export type PersistedState = {
   schedule: Schedule;
