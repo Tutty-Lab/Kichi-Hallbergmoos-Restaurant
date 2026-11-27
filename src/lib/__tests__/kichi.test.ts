@@ -45,10 +45,18 @@ it("uses Kichi weights for both partial-week boundaries instead of inherited Sun
  let first=0,last=0;
  for(const e of s.employees){const b=weeklyBudgetMinutes(e,dates,{first:"2026-11-01",last:"2026-11-30"},hours);first+=b.get("2026-10-26")??0;last+=b.get("2026-11-30")??0;}
  expect(first/60).toBe(29.5);
- expect(last/60).toBe(27.5);
+ expect(last/60).toBe(27);
  expect((first-last)/60).toBeLessThanOrEqual(s.employees.length*.5);
  const shifts=generateSchedule({...s,storeTag:c.id,rules:c.staffingRules,weights:c.dayWeights,demandProfile:c.demandProfile});
  const paid=(date:string)=>shifts.filter(x=>x.date===date).reduce((n,x)=>n+x.paidMinutes,0)/60;
  expect(paid("2026-11-01")).toBe(29.5);
- expect(paid("2026-11-30")).toBe(27.5);
+ expect(paid("2026-11-30")).toBe(27);
+});
+
+import { weightedDailyTargets } from "../staffing";
+it("allocates Saturday ten percent more target hours for equal opening duration", () => {
+ const c=STORES[0];
+ expect(c.dayWeights.saturday).toBe(1.1);
+ const targets=weightedDailyTargets(["2026-11-20","2026-11-21"],42,d=>d.endsWith("21")?"saturday":"friday",()=>690,c.dayWeights);
+ expect(targets.get("2026-11-21")!/targets.get("2026-11-20")!).toBeCloseTo(1.1);
 });

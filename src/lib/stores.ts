@@ -21,7 +21,7 @@ export type StoreConfig = {
   staffingRules: readonly StaffingRule[];
 };
 
-const dayWeights: Record<WeekdayKey, number> = { monday: 1, tuesday: 0, wednesday: 1, thursday: 1, friday: 1, saturday: 1, sunday: 1 };
+const dayWeights: Record<WeekdayKey, number> = { monday: 1, tuesday: 0, wednesday: 1, thursday: 1, friday: 1, saturday: 1.1, sunday: 1 };
 const open = [{ startMinutes: 630, endMinutes: 1320 }];
 export const STORES: StoreConfig[] = [{
   id: "kichi-hallbergmoos", name: "Kichi", shortName: "Kichi Hallbergmoos",
@@ -42,7 +42,7 @@ export const STORES: StoreConfig[] = [{
   ],
   dayWeights,
   staffingRules: [],
-  notes: "Làm 10:30–22:00 liên tục, không nghỉ trưa. Nghỉ thứ Ba. Ngày lễ mở như thường trừ 24–26/12 đóng cả ngày; 01/01 chỉ mở từ 17:00. Cao điểm 11:30–13:00 và 17:00–19:30. Thứ Bảy doanh thu không cao hơn nhiều nên tạm cùng trọng số. Chủ không có mặt cả ngày, không tính vào nhân sự. Chưa có yêu cầu định biên cụ thể; ví dụ 2 bếp tối thứ Sáu trong câu hỏi khảo sát không phải yêu cầu đã xác nhận. Chưa có bảng lương. Quyền 20h/tuần tạm ghi Teilzeit; bốn người còn lại Vollzeit theo mô tả.",
+  notes: "Làm 10:30–22:00 liên tục, không nghỉ trưa. Nghỉ thứ Ba. Ngày lễ mở như thường trừ 24–26/12 đóng cả ngày; 01/01 chỉ mở từ 17:00. Cao điểm 11:30–13:00 và 17:00–19:30. Thứ Bảy hệ số 1,1; các ngày mở khác 1,0 theo xác nhận. Chủ không có mặt cả ngày, không tính vào nhân sự. Chưa có yêu cầu định biên cụ thể; ví dụ 2 bếp tối thứ Sáu trong câu hỏi khảo sát không phải yêu cầu đã xác nhận. Chưa có bảng lương. Quyền 20h/tuần tạm ghi Teilzeit; bốn người còn lại Vollzeit theo mô tả.",
 }];
 export const DEFAULT_STORE_ID = STORES[0].id;
 

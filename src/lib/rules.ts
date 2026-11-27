@@ -45,7 +45,7 @@ export const RULES: readonly Rule[] = [
   { id: "holiday-duty", kind: "hard", title: "Trực ngày lễ", detail: "Ngày lễ quán mở thì người trực ngày lễ phải có ca." },
   { id: "contract-hours", kind: "soft", title: "Đủ giờ định mức", detail: "Xếp đủ giờ hợp đồng; tháng không đủ ngày (nghỉ, giới hạn ngày, làm quán khác) thì báo thiếu." },
   { id: "peak-staff", kind: "soft", title: "Số người giờ cao điểm", detail: "Cao điểm 11:30–13:00 và 17:00–19:30; chưa có số người tối thiểu." },
-  { id: "day-weights", kind: "soft", title: "Ngày đông nhiều giờ hơn", detail: "Kichi tạm dùng trọng số bằng nhau cho các ngày mở cửa." },
+  { id: "day-weights", kind: "soft", title: "Ngày đông nhiều giờ hơn", detail: "Kichi: thứ Bảy hệ số 1,1; các ngày mở khác 1,0." },
   { id: "own-shift-length", kind: "soft", title: "Độ dài ca riêng", detail: "Mỗi ngày làm nằm trong khoảng giờ đã đặt cho người đó." },
   { id: "spread-evenly", kind: "soft", title: "Rải đều trong tháng", detail: "Giờ chia đều theo tuần; có Độ dài ca thì nhiều ca ngắn hơn." },
   { id: "preferred-windows", kind: "soft", title: "Khung giờ ưu tiên", detail: "Xếp vào ngày và giờ người đó muốn, nếu số người và giờ định mức cho phép." },

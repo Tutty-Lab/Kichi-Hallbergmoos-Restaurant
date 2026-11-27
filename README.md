@@ -4,7 +4,7 @@ Source: Bao-Restaurant. Store riêng `kichi-hallbergmoos`, tách Kichi Vietnames
 
 Rathausplatz 4, 85399 Hallbergmoos. Làm 10:30–22:00 liên tục, không nghỉ trưa; nghỉ thứ Ba.
 Ngày lễ mở bình thường trừ 24–26/12 đóng cửa. 01/01 mở 17:00–22:00.
-Cao điểm 11:30–13:00 và 17:00–19:30. Doanh thu thứ Bảy không cao hơn nhiều: tạm cùng trọng số.
+Cao điểm 11:30–13:00 và 17:00–19:30. Hệ số thứ Bảy 1,1; các ngày mở khác 1,0.
 Chủ không hỗ trợ cả ngày. Không áp dụng ví dụ 2 bếp tối thứ Sáu trong câu hỏi khảo sát thành yêu cầu.
 
 | Nhân viên | Giờ/tuần | Vị trí |
