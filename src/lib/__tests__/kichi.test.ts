@@ -33,3 +33,22 @@ it("keeps Christmas closures across supported years", () => {
   expect(resolveDay(s.workHours!,`${year}-12-${day}`,publicHolidays(year),overrides).closed).toBe(true);
  }
 });
+
+import { weeklyBudgetMinutes } from "../contract";
+import { datesOfMonth } from "../demand";
+import { normalizeWorkHours } from "../workHours";
+it("uses Kichi weights for both partial-week boundaries instead of inherited Sunday uplift", () => {
+ const c=STORES[0], s=initialScheduleFor(c), h=publicHolidays(2026);
+ const hours=normalizeWorkHours(s.workHours);
+ expect(hours.dayWeights).toEqual(c.dayWeights);
+ const dates=datesOfMonth(2026,11).filter(d=>!resolveDay(hours,d,h,{}).closed);
+ let first=0,last=0;
+ for(const e of s.employees){const b=weeklyBudgetMinutes(e,dates,{first:"2026-11-01",last:"2026-11-30"},hours);first+=b.get("2026-10-26")??0;last+=b.get("2026-11-30")??0;}
+ expect(first/60).toBe(29.5);
+ expect(last/60).toBe(27.5);
+ expect((first-last)/60).toBeLessThanOrEqual(s.employees.length*.5);
+ const shifts=generateSchedule({...s,storeTag:c.id,rules:c.staffingRules,weights:c.dayWeights,demandProfile:c.demandProfile});
+ const paid=(date:string)=>shifts.filter(x=>x.date===date).reduce((n,x)=>n+x.paidMinutes,0)/60;
+ expect(paid("2026-11-01")).toBe(29.5);
+ expect(paid("2026-11-30")).toBe(27.5);
+});

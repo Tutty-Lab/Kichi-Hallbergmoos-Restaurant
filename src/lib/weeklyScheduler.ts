@@ -857,6 +857,8 @@ function improveCoverage(result: Shift[], employees: Employee[], days: Map<strin
 }
 
 export function generateWeeklySchedule(input: WeeklyInput, existing: Shift[] = []): Shift[] {
+  // Explicit store weights must also govern partial-week contract budgets.
+  if (input.storeTag === "kichi-hallbergmoos" && input.weights) input = { ...input, workHours: { ...input.workHours, dayWeights: input.weights } };
   const ctx: Ctx = {
     rules: input.rules ?? STAFFING_RULES,
     weights: input.weights ?? DAY_WEIGHTS,

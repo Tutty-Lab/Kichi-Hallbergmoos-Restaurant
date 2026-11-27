@@ -21,12 +21,14 @@ export type StoreConfig = {
   staffingRules: readonly StaffingRule[];
 };
 
+const dayWeights: Record<WeekdayKey, number> = { monday: 1, tuesday: 0, wednesday: 1, thursday: 1, friday: 1, saturday: 1, sunday: 1 };
 const open = [{ startMinutes: 630, endMinutes: 1320 }];
 export const STORES: StoreConfig[] = [{
   id: "kichi-hallbergmoos", name: "Kichi", shortName: "Kichi Hallbergmoos",
   address: "Rathausplatz 4, 85399 Hallbergmoos",
   sampleEmployees: kichiEmployees,
   workHours: {
+    dayWeights,
     perWeekday: { monday: open, tuesday: [], wednesday: open, thursday: open, friday: open, saturday: open, sunday: open },
     holiday: open,
     closedWeekdays: { monday: false, tuesday: true, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false },
@@ -38,7 +40,7 @@ export const STORES: StoreConfig[] = [{
     { startMinutes: 1020, endMinutes: 1170, level: 2, label: "Cao điểm tối 17:00–19:30" },
     { startMinutes: 1170, endMinutes: 1440, level: 1, label: "Ngoài cao điểm" },
   ],
-  dayWeights: { monday: 1, tuesday: 0, wednesday: 1, thursday: 1, friday: 1, saturday: 1, sunday: 1 },
+  dayWeights,
   staffingRules: [],
   notes: "Làm 10:30–22:00 liên tục, không nghỉ trưa. Nghỉ thứ Ba. Ngày lễ mở như thường trừ 24–26/12 đóng cả ngày; 01/01 chỉ mở từ 17:00. Cao điểm 11:30–13:00 và 17:00–19:30. Thứ Bảy doanh thu không cao hơn nhiều nên tạm cùng trọng số. Chủ không có mặt cả ngày, không tính vào nhân sự. Chưa có yêu cầu định biên cụ thể; ví dụ 2 bếp tối thứ Sáu trong câu hỏi khảo sát không phải yêu cầu đã xác nhận. Chưa có bảng lương. Quyền 20h/tuần tạm ghi Teilzeit; bốn người còn lại Vollzeit theo mô tả.",
 }];

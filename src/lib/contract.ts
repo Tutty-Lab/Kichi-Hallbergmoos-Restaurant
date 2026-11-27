@@ -69,7 +69,7 @@ export type WeekShare = {
  */
 function weekdayFactor(weekday: WeekdayKey, workHours: WorkHoursConfig): number {
   const minutes = workHours.perWeekday[weekday].reduce((sum, block) => sum + (block.endMinutes - block.startMinutes), 0);
-  return DAY_WEIGHTS[weekday] * minutes;
+  return (workHours.dayWeights ?? DAY_WEIGHTS)[weekday] * minutes;
 }
 
 /**

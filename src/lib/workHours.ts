@@ -18,6 +18,8 @@ export type DayWindow = { startMinutes: number; endMinutes: number };
 export type DayBlocks = DayWindow[];
 
 export type WorkHoursConfig = {
+  /** Store weights used for weekly-contract shares as well as daily allocation. */
+  dayWeights?: Record<WeekdayKey, number>;
   perWeekday: Record<WeekdayKey, DayBlocks>;
   holiday: DayBlocks;
   /**
@@ -200,5 +202,5 @@ export function normalizeWorkHours(partial: Partial<WorkHoursConfig> | undefined
       if (typeof v === "boolean") closedWeekdays[key] = v;
     }
   }
-  return { perWeekday, holiday, closedWeekdays };
+  return { perWeekday, holiday, closedWeekdays, ...(partial?.dayWeights ? { dayWeights: { ...partial.dayWeights } } : {}) };
 }
